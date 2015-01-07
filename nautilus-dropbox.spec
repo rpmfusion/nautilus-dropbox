@@ -1,12 +1,14 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2.10.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 Group:          User Interface/Desktops
 URL:            https://www.dropbox.com
 Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
+
+ExclusiveArch:  i686 x86_64
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  nautilus-devel
@@ -75,7 +77,10 @@ fi
 %{_libdir}/nautilus/extensions-3.0/libnautilus-dropbox.so
 
 %changelog
-* Tue Dec 16 2014 Leigh Scott <leigh123linux@googlemail.com> - 2.10.0-1
+* Wed Jan 07 2015 Leigh Scott <leigh123linux@googlemail.com> - 1:2.10.0-2
+- add ExclusiveArch
+
+* Tue Dec 16 2014 Leigh Scott <leigh123linux@googlemail.com> - 1:2.10.0-1
 - first build
 
 
