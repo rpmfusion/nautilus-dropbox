@@ -1,12 +1,15 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2.10.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 Group:          User Interface/Desktops
 URL:            https://www.dropbox.com
 Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
+
+# add 10 second delay to autostart to ensure it loads on session startup
+Patch0:         add_startup_delay.patch
 
 ExclusiveArch:  i686 x86_64
 
@@ -37,6 +40,7 @@ your computers automatically.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure --disable-static
@@ -77,6 +81,9 @@ fi
 %{_libdir}/nautilus/extensions-3.0/libnautilus-dropbox.so
 
 %changelog
+* Sun May 31 2015 Leigh Scott <leigh123linux@googlemail.com> - 1:2.10.0-3
+- add 10 second delay to autostart to ensure it loads on session startup
+
 * Wed Jan 07 2015 Leigh Scott <leigh123linux@googlemail.com> - 1:2.10.0-2
 - add ExclusiveArch
 
