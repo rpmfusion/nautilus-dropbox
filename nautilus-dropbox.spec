@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
-Version:        2.10.0
-Release:        3%{?dist}
+Version:        2015.10.28
+Release:        1%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 Group:          User Interface/Desktops
@@ -81,6 +81,9 @@ fi
 %{_libdir}/nautilus/extensions-3.0/libnautilus-dropbox.so
 
 %changelog
+* Mon Aug 08 2016 Julian Sikorski <belegdol@fedoraproject.org> - 1:2015.10.28-1
+- Updated to 2015.10.28
+
 * Sun May 31 2015 Leigh Scott <leigh123linux@googlemail.com> - 1:2.10.0-3
 - add 10 second delay to autostart to ensure it loads on session startup
 
