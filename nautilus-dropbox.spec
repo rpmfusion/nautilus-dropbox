@@ -1,10 +1,9 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2015.10.28
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
-Group:          User Interface/Desktops
 URL:            https://www.dropbox.com
 Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 
@@ -15,8 +14,7 @@ ExclusiveArch:  i686 x86_64
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  nautilus-devel
-BuildRequires:  python-docutils
-BuildRequires:  autoconf
+BuildRequires:  python2-docutils
 BuildRequires:  automake
 BuildRequires:  libtool
 BuildRequires:  pygobject2-devel
@@ -28,7 +26,6 @@ Dropbox extension for nautilus file manager
 
 %package -n dropbox
 Summary:        Client for Linux
-Group:          User Interface/Desktops
 BuildArch:      noarch
 Requires:       pygtk2
 Requires:       hicolor-icon-theme
@@ -44,7 +41,7 @@ your computers automatically.
 
 %build
 %configure --disable-static
-make %{?_smp_mflags}
+%{make_build}
 
 %install
 %{make_install}
@@ -70,17 +67,21 @@ fi
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files -n dropbox
-%doc ChangeLog README COPYING
+%doc ChangeLog README
+%license COPYING
 %{_bindir}/dropbox
 %{_datadir}/nautilus-dropbox/
 %{_datadir}/icons/hicolor/*
-%{_mandir}/man1/dropbox.1.gz
+%{_mandir}/man1/dropbox.1.*
 %{_datadir}/applications/dropbox.desktop
 
 %files
 %{_libdir}/nautilus/extensions-3.0/libnautilus-dropbox.so
 
 %changelog
+* Sun Jul 02 2017 Leigh Scott <leigh123linux@googlemail.com> - 1:2015.10.28-3
+- spec file clean up
+
 * Sun Mar 26 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 1:2015.10.28-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
