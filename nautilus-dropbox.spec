@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2015.10.28
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 URL:            https://www.dropbox.com
@@ -80,6 +80,9 @@ fi
 %{_libdir}/nautilus/extensions-3.0/libnautilus-dropbox.so
 
 %changelog
+* Fri Mar 02 2018 RPM Fusion Release Engineering <leigh123linux@googlemail.com> - 1:2015.10.28-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Thu Oct 12 2017 Leigh Scott <leigh123linux@googlemail.com> - 1:2015.10.28-5
 - Add requires python2-pygpgme to dropbox sub-package (rfbz #4682)
 
