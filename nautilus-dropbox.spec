@@ -9,6 +9,7 @@ Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 
 # add 10 second delay to autostart to ensure it loads on session startup
 Patch0:         add_startup_delay.patch
+Patch1:         use_python2.patch
 
 ExclusiveArch:  i686 x86_64
 
@@ -38,6 +39,7 @@ your computers automatically.
 
 %prep
 %autosetup -p1
+autoreconf -fiv
 
 %build
 %configure --disable-static
@@ -68,6 +70,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 * Tue Jul 24 2018 Leigh Scott <leigh123linux@googlemail.com> - 1:2015.10.28-7
 - Fix directory ownership (rfbz#4975)
 - Fix scriptlets
+- Fix build for f29 python changes
 
 * Fri Mar 02 2018 RPM Fusion Release Engineering <leigh123linux@googlemail.com> - 1:2015.10.28-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
