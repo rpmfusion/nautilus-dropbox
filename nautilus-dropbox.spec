@@ -57,7 +57,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 %license COPYING
 %{_bindir}/dropbox
 %{_datadir}/nautilus-dropbox/
-%{_datadir}/icons/hicolor/*/apps/%{name}.png
+%{_datadir}/icons/hicolor/*/apps/dropbox.png
 %{_mandir}/man1/dropbox.1.*
 %{_datadir}/applications/dropbox.desktop
 
