@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2015.10.28
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 URL:            https://www.dropbox.com
@@ -67,6 +67,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 %{_libdir}/nautilus/extensions-3.0/libnautilus-dropbox.so
 
 %changelog
+* Sun Aug 19 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1:2015.10.28-8
+- Rebuilt for Fedora 29 Mass Rebuild binutils issue
+
 * Tue Jul 24 2018 Leigh Scott <leigh123linux@googlemail.com> - 1:2015.10.28-7
 - Fix directory ownership (rfbz#4975)
 - Fix scriptlets
