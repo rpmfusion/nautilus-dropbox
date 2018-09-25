@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2015.10.28
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 URL:            https://www.dropbox.com
@@ -10,6 +10,8 @@ Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 # add 10 second delay to autostart to ensure it loads on session startup
 Patch0:         add_startup_delay.patch
 Patch1:         use_python2.patch
+# Based on https://github.com/dropbox/nautilus-dropbox/commit/e9367206f9b723103362e8dd154363517e9a9841
+Patch2:         switch_to_python-gpg.patch
 
 ExclusiveArch:  i686 x86_64
 
@@ -29,7 +31,7 @@ Dropbox extension for nautilus file manager
 Summary:        Client for Linux
 BuildArch:      noarch
 Requires:       pygtk2
-Requires:       python2-pygpgme
+Requires:       python2-gpg
 Requires:       hicolor-icon-theme
 
 %description -n dropbox
@@ -67,6 +69,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 %{_libdir}/nautilus/extensions-3.0/libnautilus-dropbox.so
 
 %changelog
+* Tue Sep 25 2018 Leigh Scott <leigh123linux@googlemail.com> - 1:2015.10.28-9
+- Add upstream commit to switch to python2-gpg (rfbz#5032)
+
 * Sun Aug 19 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1:2015.10.28-8
 - Rebuilt for Fedora 29 Mass Rebuild binutils issue
 
