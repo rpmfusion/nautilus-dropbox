@@ -1,5 +1,5 @@
---- a/configure.in
-+++ b/configure.in
+--- a/configure.ac
++++ b/configure.ac
 @@ -29,16 +29,16 @@
  PKG_CHECK_MODULES(NAUTILUS, libnautilus-extension >= $NAUTILUS_REQUIRED)
  PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED)
@@ -24,7 +24,7 @@
 --- a/dropbox.in
 +++ b/dropbox.in
 @@ -1,4 +1,4 @@
--#!/usr/bin/python
+-#!/usr/bin/env python2
 +#!/usr/bin/python2
  #
  # Copyright (c) Dropbox, Inc.

@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
-Version:        2015.10.28
-Release:        9%{?dist}
+Version:        2018.11.28
+Release:        1%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 URL:            https://www.dropbox.com
@@ -10,14 +10,13 @@ Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 # add 10 second delay to autostart to ensure it loads on session startup
 Patch0:         add_startup_delay.patch
 Patch1:         use_python2.patch
-# Based on https://github.com/dropbox/nautilus-dropbox/commit/e9367206f9b723103362e8dd154363517e9a9841
-Patch2:         switch_to_python-gpg.patch
 
 ExclusiveArch:  i686 x86_64
 
 BuildRequires:  automake
 BuildRequires:  desktop-file-utils
 BuildRequires:  libtool
+BuildRequires:  gcc
 BuildRequires:  nautilus-devel
 BuildRequires:  python2-docutils
 BuildRequires:  pygobject2-devel
@@ -57,7 +56,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 %ldconfig_scriptlets
 
 %files -n dropbox
-%doc ChangeLog README
+%doc ChangeLog
 %license COPYING
 %{_bindir}/dropbox
 %{_datadir}/nautilus-dropbox/
@@ -69,6 +68,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 %{_libdir}/nautilus/extensions-3.0/libnautilus-dropbox.so
 
 %changelog
+* Fri Dec 07 2018 Leigh Scott <leigh123linux@googlemail.com> - 1:2018.11.28-1
+- Updated to 2018.11.28
+
 * Tue Sep 25 2018 Leigh Scott <leigh123linux@googlemail.com> - 1:2015.10.28-9
 - Add upstream commit to switch to python2-gpg (rfbz#5032)
 
