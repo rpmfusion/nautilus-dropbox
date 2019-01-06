@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2018.11.28
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 URL:            https://www.dropbox.com
@@ -10,6 +10,8 @@ Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 # add 10 second delay to autostart to ensure it loads on session startup
 Patch0:         add_startup_delay.patch
 Patch1:         use_python2.patch
+# https://github.com/dropbox/nautilus-dropbox/pull/57
+Patch2:         nautilus-dropbox_0002-Use-GIR-bindings-instead-of-pygtk.patch
 
 ExclusiveArch:  i686 x86_64
 
@@ -19,8 +21,7 @@ BuildRequires:  libtool
 BuildRequires:  gcc
 BuildRequires:  nautilus-devel
 BuildRequires:  python2-docutils
-BuildRequires:  pygobject2-devel
-BuildRequires:  pygtk2-devel
+BuildRequires:  pygobject3-devel
 Requires:       dropbox >= %{?epoch}:%{version}-%{release}
 
 %description
@@ -29,9 +30,8 @@ Dropbox extension for nautilus file manager
 %package -n dropbox
 Summary:        Client for Linux
 BuildArch:      noarch
-Requires:       pygtk2
+Requires:       python2-gobject
 Requires:       python2-gpg
-Requires:       hicolor-icon-theme
 
 %description -n dropbox
 Dropbox allows you to sync your files online and across
@@ -53,7 +53,6 @@ find %{buildroot}%{_libdir} -type f -name '*.la' -delete -print
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 
-%ldconfig_scriptlets
 
 %files -n dropbox
 %doc ChangeLog
@@ -67,7 +66,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 %files
 %{_libdir}/nautilus/extensions-3.0/libnautilus-dropbox.so
 
+
 %changelog
+* Sun Jan 06 2019 Wolfgang Ulbrich <fedora@raveit.de> - 1:2018.11.28-2
+- add upstream patch, port pygtk2 to pygobject-introspection
+
 * Fri Dec 07 2018 Leigh Scott <leigh123linux@googlemail.com> - 1:2018.11.28-1
 - Updated to 2018.11.28
 
