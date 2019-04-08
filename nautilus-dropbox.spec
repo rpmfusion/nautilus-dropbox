@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2019.01.31
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 URL:            https://www.dropbox.com
@@ -11,6 +11,8 @@ Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 Patch0:         add_startup_delay.patch
 Patch1:         python3-docutils_fix.patch
 Patch2:         fix_nautilus_includes.patch
+
+ExclusiveArch:  i686 x86_64
 
 BuildRequires:  automake
 BuildRequires:  desktop-file-utils
@@ -65,6 +67,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 
 
 %changelog
+* Mon Apr 08 2019 Wolfgang Ulbrich <chat-to-me@raveit.de> - 1:2019.01.31-4
+- exclude archs again
+
 * Sun Apr 07 2019 Wolfgang Ulbrich <chat-to-me@raveit.de> - 1:2019.01.31-3
 - build for all archs
 
