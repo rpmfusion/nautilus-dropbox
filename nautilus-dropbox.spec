@@ -7,9 +7,6 @@ License:        GPLv3+
 URL:            https://www.dropbox.com
 Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 
-# links to fedora repos seems to be wrong for f30
-ExcludeArch:    ppc64le
-
 # add 10 second delay to autostart to ensure it loads on session startup
 Patch0:         add_startup_delay.patch
 Patch1:         python3-docutils_fix.patch
