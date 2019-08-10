@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2019.01.31
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 URL:            https://www.dropbox.com
@@ -67,6 +67,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 
 
 %changelog
+* Sat Aug 10 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1:2019.01.31-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
 * Mon Apr 08 2019 Wolfgang Ulbrich <chat-to-me@raveit.de> - 1:2019.01.31-4
 - exclude archs again
 
