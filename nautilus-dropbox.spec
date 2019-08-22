@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
-Version:        2019.01.31
-Release:        5%{?dist}
+Version:        2019.02.14
+Release:        1%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 URL:            https://www.dropbox.com
@@ -9,8 +9,7 @@ Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 
 # add 10 second delay to autostart to ensure it loads on session startup
 Patch0:         add_startup_delay.patch
-Patch1:         python3-docutils_fix.patch
-Patch2:         fix_nautilus_includes.patch
+Patch1:         fix_nautilus_includes.patch
 
 ExclusiveArch:  i686 x86_64
 
@@ -67,6 +66,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 
 
 %changelog
+* Thu Aug 22 2019 Leigh Scott <leigh123linux@googlemail.com> - 1:2019.02.14-1
+- Updated to 2019.02.14
+
 * Sat Aug 10 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1:2019.01.31-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
