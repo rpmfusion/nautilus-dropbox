@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2019.02.14
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 URL:            https://www.dropbox.com
@@ -30,6 +30,7 @@ Summary:        Client for Linux
 BuildArch:      noarch
 Requires:       python3-gobject
 Requires:       python3-gpg
+Requires:       libatomic
 
 %description -n dropbox
 Dropbox allows you to sync your files online and across
@@ -66,6 +67,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 
 
 %changelog
+* Sat Nov 16 2019 Wolfgang Ulbrich <fedora@raveit.de> - 1:2019.02.14-2
+- add libatomic runtime require, fix rpmfusion (#5461)
+
 * Thu Aug 22 2019 Leigh Scott <leigh123linux@googlemail.com> - 1:2019.02.14-1
 - Updated to 2019.02.14
 
