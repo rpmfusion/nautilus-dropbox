@@ -1,0 +1,8 @@
+--- a/data/dropbox.desktop
++++ b/data/dropbox.desktop
+@@ -9,3 +9,4 @@
+ Categories=Network;FileTransfer;
+ Keywords=file;synchronization;sharing;collaboration;cloud;storage;backup;
+ StartupNotify=false
++X-GNOME-Autostart-Delay=10
+
