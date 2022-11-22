@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2020.03.04
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 URL:            https://www.dropbox.com
@@ -11,6 +11,7 @@ Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 Patch0:         add_startup_delay.patch
 Patch1:         fix_nautilus_includes.patch
 Patch2:         105.patch
+Patch3:         missing-icons-hack.patch
 
 ExclusiveArch:  i686 x86_64
 
@@ -69,6 +70,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 
 
 %changelog
+* Tue Nov 22 2022 Julian Sikorski <belegdol@fedoraproject.org> - 1:2020.03.04-7
+- Update the PR code to latest
+- Add hack fixing missing emblems
+
 * Tue Nov 15 2022 Julian Sikorski <belegdol@fedoraproject.org> - 1:2020.03.04-6
 - Add PR fixing nautilus 43+ support
 
