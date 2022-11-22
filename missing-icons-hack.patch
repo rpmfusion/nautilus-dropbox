@@ -1,0 +1,17 @@
+diff -up nautilus-dropbox-2020.03.04/src/nautilus-dropbox.c.emblemhack nautilus-dropbox-2020.03.04/src/nautilus-dropbox.c
+--- nautilus-dropbox-2020.03.04/src/nautilus-dropbox.c.emblemhack	2022-11-22 17:07:41.447839189 +0100
++++ nautilus-dropbox-2020.03.04/src/nautilus-dropbox.c	2022-11-22 17:10:42.294970396 +0100
+@@ -361,7 +361,12 @@ nautilus_dropbox_finish_file_info_comman
+       int i;
+       for ( i = 0; status[i] != NULL; i++) {
+ 	  if (status[i][0])
+-	    nautilus_file_info_add_emblem(dficr->dfic->file, status[i]);
++          {
++            gchar *emblem = status[i];
++            if (g_strcmp0(emblem, "people") == 0)
++              emblem = "shared";
++            nautilus_file_info_add_emblem(dficr->dfic->file, emblem);
++          }
+       }
+       result = NAUTILUS_OPERATION_COMPLETE;
+     }
