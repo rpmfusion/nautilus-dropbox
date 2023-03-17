@@ -1,17 +1,17 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2022.12.05
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPL-3.0-or-later AND CC-BY-ND-3.0
 URL:            https://www.dropbox.com
-Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
+Source0:        https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 
 # add 10 second delay to autostart to ensure it loads on session startup
 Patch0:         add_startup_delay.patch
 Patch3:         missing-icons-hack.patch
 
-ExclusiveArch:  i686 x86_64
+ExclusiveArch:  x86_64
 
 BuildRequires:  automake
 BuildRequires:  desktop-file-utils
@@ -22,22 +22,24 @@ BuildRequires:  nautilus-devel
 BuildRequires:  python3-docutils
 BuildRequires:  python3-gobject
 Requires:       dropbox >= %{?epoch}:%{version}-%{release}
-Requires:       hicolor-icon-theme
 
 %description
 Dropbox extension for nautilus file manager
 
 %package -n dropbox
 Summary:        Client for Linux
-BuildArch:      noarch
+Requires:       hicolor-icon-theme
 Requires:       python3-gobject
 Requires:       python3-gpg
 Requires:       libatomic
 
 %description -n dropbox
-Dropbox allows you to sync your files online and across
-your computers automatically.
-
+Dropbox allows you to sync your files online and across your computers
+automatically.
+Note: This package installs an open-source helper application. The version
+of this application does not change as frequently as the main Dropbox
+application. These packages will always install the latest version of Dropbox
+for Linux.
 
 %prep
 %autosetup -p1
@@ -69,6 +71,12 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 
 
 %changelog
+* Thu Mar 16 2023 Julian Sikorski <belegdol@fedoraproject.org> - 1:2022.12.05-3
+- It is the dropbox package which requires hicolor-icon-theme
+- Drop i686 arch and make the dropbox package arched
+- Switch to Source0
+- Add a note that the dropbox package is a downloader for the actual client
+
 * Tue Mar 14 2023 Julian Sikorski <belegdol@fedoraproject.org> - 1:2022.12.05-2
 - Switch the License field to SPDX
 - Add missing CC-BY-ND-3.0 license
