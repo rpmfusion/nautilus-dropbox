@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2020.03.04
-Release:        5%{?dist}
+Release:        4%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPLv3+
 URL:            https://www.dropbox.com
@@ -10,7 +10,6 @@ Source:         https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 # add 10 second delay to autostart to ensure it loads on session startup
 Patch0:         add_startup_delay.patch
 Patch1:         fix_nautilus_includes.patch
-Patch2:         105.patch
 
 ExclusiveArch:  i686 x86_64
 
@@ -18,7 +17,6 @@ BuildRequires:  automake
 BuildRequires:  desktop-file-utils
 BuildRequires:  libtool
 BuildRequires:  gcc
-BuildRequires:  gtk4-devel
 BuildRequires:  nautilus-devel
 BuildRequires:  python3-docutils
 BuildRequires:  python3-gobject
@@ -65,13 +63,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 %{_datadir}/applications/dropbox.desktop
 
 %files
-%{_libdir}/nautilus/extensions-4/libnautilus-dropbox.so
+%{_libdir}/nautilus/extensions-3.0/libnautilus-dropbox.so
 
 
 %changelog
-* Tue Nov 15 2022 Julian Sikorski <belegdol@fedoraproject.org> - 1:2020.03.04-5
-- Add PR fixing nautilus 43+ support
-
 * Thu Feb 10 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1:2020.03.04-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
