@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
 Version:        2022.12.05
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPL-3.0-or-later AND CC-BY-ND-3.0
 URL:            https://www.dropbox.com
@@ -9,7 +9,6 @@ Source0:        https://linux.dropbox.com/packages/%{name}-%{version}.tar.bz2
 
 # add 10 second delay to autostart to ensure it loads on session startup
 Patch0:         add_startup_delay.patch
-Patch3:         missing-icons-hack.patch
 
 ExclusiveArch:  x86_64
 
@@ -71,6 +70,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 
 
 %changelog
+* Mon May 01 2023 Julian Sikorski <belegdol@fedoraproject.org> - 1:2022.12.05-4
+- Drop the missing icons hack now that it is no longer needed
+
 * Thu Mar 16 2023 Julian Sikorski <belegdol@fedoraproject.org> - 1:2022.12.05-3
 - It is the dropbox package which requires hicolor-icon-theme
 - Drop i686 arch and make the dropbox package arched
