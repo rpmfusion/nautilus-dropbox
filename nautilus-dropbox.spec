@@ -1,7 +1,7 @@
 Name:           nautilus-dropbox
 Epoch:          1
-Version:        2022.12.05
-Release:        4%{?dist}
+Version:        2023.09.06
+Release:        1%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPL-3.0-or-later AND CC-BY-ND-3.0
 URL:            https://www.dropbox.com
@@ -70,6 +70,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 
 
 %changelog
+* Thu Jan 18 2024 Julian Sikorski <belegdol@fedoraproject.org> - 1:2023.09.06-1
+- Update to 2023.09.06
+
 * Mon May 01 2023 Julian Sikorski <belegdol@fedoraproject.org> - 1:2022.12.05-4
 - Drop the missing icons hack now that it is no longer needed
 
