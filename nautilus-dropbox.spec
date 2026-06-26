@@ -1,6 +1,6 @@
 Name:           nautilus-dropbox
 Epoch:          1
-Version:        2026.01.15
+Version:        2026.05.06
 Release:        1%{?dist}
 Summary:        Dropbox extension for Nautilus
 License:        GPL-3.0-or-later AND CC-BY-ND-3.0
@@ -70,6 +70,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/dropbox.desktop
 
 
 %changelog
+* Fri Jun 26 2026 Mike Rochefort <mroche@omenos.dev> - 1:2026.05.06-1
+- Update to 2026.05.06
+
 * Tue Feb 03 2026 Julian Sikorski <belegdol@fedoraproject.org> - 1:2026.01.15-1
 - Update to 2026.01.15
 
